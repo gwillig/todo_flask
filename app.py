@@ -1,35 +1,38 @@
-from flask import Flask
+""" Useful cmd
+Description                         | Cmd
+to login as the right user for psql | PGUSER=myapp PGPASSWORD=dbpass psql -h localhost myapp
 
 
+"""
+
+from flask import Flask,render_template
 from flask_sqlalchemy import SQLAlchemy
-
-import psycopg2
-conn = psycopg2.connect('postgresql://myapp:dbpass@localhost:15432/myapp')
-cur = conn.cursor()
-cur.execute("SELECT * FROM person;")
-result = cur.fetchall()
-conn.rollback()
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://myapp:dbpass@localhost:15432/myapp'
 db=SQLAlchemy(app)
 
+# import psycopg2
+# conn = psycopg2.connect('postgresql://myapp:dbpass@localhost:15432/myapp')
+# cur = conn.cursor()
+# cur.execute("SELECT * FROM todo;")
+# result = cur.fetchall()
+# conn.rollback()
+
+
 # Create a model
-class Person(db.Model):
+class Todo(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(80))
+    done = db.Column(db.Boolean)
 
 db.create_all() #If a table with the name Person already exist, not a new table will be created automatically
-p1=Person(name="Tim")
-db.session.add(p1)
+task1=Todo(name="Clean my work desk")
+db.session.add(task1)
 db.session.commit()
 
 @app.route('/')
 def index():
-    msg = ''
-    for el in Person.query.all():
-        person_name = el.name
-        msg+='hello '+person_name+ ' is nice to meet you\n'
-    return msg
+    return render_template('index.html')
 
 
 
