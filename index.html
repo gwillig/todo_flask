@@ -9,6 +9,11 @@
         background-color:#ffc10759};
 </style>
 <body>
-    <h1>Todo</h1>
+    <h1>Todo App</h1>
+    <ul>
+        {%for item in data%}
+        <li>{{item.description}}</li>
+        {%endfor%}
+    </ul>
 </body>
 </html>
