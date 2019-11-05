@@ -11,8 +11,9 @@
 <body>
     <h1>Todo App</h1>
     <ul>
-        {%for item in data%}
-        <li>{{item.description}}</li>
+        {%for d in data%}
+        <li>{{d.description}}
+        </li>
         {%endfor%}
     </ul>
 </body>

@@ -26,17 +26,21 @@ class Todo(db.Model):
     done = db.Column(db.Boolean,default=False)
 
 db.create_all() #If a table with the name Person already exist, not a new table will be created automatically
-task1=Todo(name="Clean my work desk")
-db.session.add(task1)
+# # task1=Todo(name="Clean my work desk")
+# db.session.add(task1)
 db.session.commit()
 
 @app.route('/')
 def index():
     '#1.Step:Get all object from the database'
     data={}
+    response_data=[]
     for el in Todo.query.all():
+        print(el.id)
         data[el.id]={"description":el.name,"done":el.done}
-    return render_template('index.html',)
+        response_data.append(data[el.id])
+    print(response_data)
+    return render_template('index.html',data=response_data)
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port='3000',debug=True)
