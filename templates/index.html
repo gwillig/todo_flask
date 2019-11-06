@@ -16,5 +16,9 @@
         </li>
         {%endfor%}
     </ul>
+    <form action="/todo/create" method="post">
+        <input type="text" id="description" name="description">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

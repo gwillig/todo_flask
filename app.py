@@ -1,14 +1,15 @@
 """ Useful cmd
 Description                         | Cmd
-to login as the right user for psql | PGUSER=myapp PGPASSWORD=dbpass psql -h localhost myapp
+to login as the right user for psql | PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 
-
+PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 """
 
-from flask import Flask,render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://myapp:dbpass@localhost:15432/myapp'
+app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://test:test@localhost:15432/todoapp'
 db=SQLAlchemy(app)
 
 # import psycopg2
@@ -24,10 +25,14 @@ class Todo(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(80))
     done = db.Column(db.Boolean,default=False)
+    def __repre__(self):
+        return f'<Todo {self.id} {self.name}>'
 
 db.create_all() #If a table with the name Person already exist, not a new table will be created automatically
-# # task1=Todo(name="Clean my work desk")
-# db.session.add(task1)
+# task1=Todo(name='Clean my desk')
+# task2=Todo(name='Buy Xmas presents')
+# db.session.add_all([task1,task2])
+
 db.session.commit()
 
 @app.route('/')
@@ -41,6 +46,14 @@ def index():
         response_data.append(data[el.id])
     print(response_data)
     return render_template('index.html',data=response_data)
+
+@app.route('/todo/create',methods=['Post'])
+def create_item():
+    description = request.form.get("description", None)
+    new_task=Todo(name=description)
+    db.session.add(new_task)
+    db.session.commit()
+    print(description)
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port='3000',debug=True)
