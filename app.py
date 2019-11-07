@@ -5,8 +5,9 @@ to login as the right user for psql | PGUSER=test PGPASSWORD=test psql -h localh
 PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 """
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import sys
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://myapp:dbpass@localhost:15432/myapp'
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://test:test@localhost:15432/todoapp'
@@ -42,7 +43,7 @@ def index():
     response_data=[]
     for el in Todo.query.all():
         print(el.id)
-        data[el.id]={"description":el.name,"done":el.done}
+        data[el.id]={"description": el.name, "done": el.done}
         response_data.append(data[el.id])
     print(response_data)
     return render_template('index.html',data=response_data)
@@ -50,10 +51,18 @@ def index():
 @app.route('/todo/create',methods=['Post'])
 def create_item():
     description = request.form.get("description", None)
-    new_task=Todo(name=description)
-    db.session.add(new_task)
-    db.session.commit()
+    try:
+        new_task=Todo(name=description)
+        db.session.add(new_task)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        error=True
+        print(sys.exc_info())
+    finally:
+        db.session.close()
     print(description)
+    return redirect(url_for('index'))
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port='3000',debug=True)
