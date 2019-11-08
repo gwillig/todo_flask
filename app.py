@@ -8,10 +8,12 @@ PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import sys
+from flask_migrate import Migrate
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://myapp:dbpass@localhost:15432/myapp'
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://test:test@localhost:15432/todoapp'
 db=SQLAlchemy(app)
+migrate=Migrate(app,db)
 
 # import psycopg2
 # conn = psycopg2.connect('postgresql://myapp:dbpass@localhost:15432/myapp')
