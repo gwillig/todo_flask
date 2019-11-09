@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c0803a4-9f2e-4698-b8af-a4cd40a7c517" name="Default Changelist" comment="" />
+    <list default="true" id="2c0803a4-9f2e-4698-b8af-a4cd40a7c517" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -112,11 +114,11 @@
     </state>
     <state width="827" height="180" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576697635292" />
     <state width="1168" height="180" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576748507141" />
-    <state x="1829" y="165" key="SettingsEditor" timestamp="1576717084966">
+    <state x="1829" y="165" key="SettingsEditor" timestamp="1576749595654">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="18" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576683435122" />
-    <state x="1829" y="165" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576717084966" />
+    <state x="1829" y="165" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576749595654" />
     <state x="475" y="243" key="com.intellij.ide.util.TipDialog" timestamp="1576697536826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
