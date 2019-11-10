@@ -28,8 +28,9 @@ migrate=Migrate(app,db)
 # Create a model
 class Todo(db.Model):
     id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String(80),)
+    name = db.Column(db.String(80),nullable=False)
     done = db.Column(db.Boolean,default=False)
+
     def __repre__(self):
         return f'<Todo {self.id} {self.name}>'
 
@@ -46,7 +47,6 @@ def index():
     data={}
     response_data=[]
     for el in Todo.query.all():
-        print(el.id)
         data[el.id]={"description": el.name, "done": el.done}
         response_data.append(data[el.id])
     print(response_data)
@@ -66,6 +66,25 @@ def create_item():
     finally:
         db.session.close()
     print(description)
+    return redirect(url_for('index'))
+
+@app.route('/todo/change_complete',methods=['Post'])
+def change_complete():
+    data = request.get_json()
+    print(f'''
+            Description:{data["description"]}\n done: {data['done']} 
+          '''
+          )
+    try:
+        task = Todo.query.filter_by(name=data['description']).first()
+        task.done = data['done']
+        db.session.commit()
+    except:
+        db.session.rollback()
+        error=True
+        print(sys.exc_info())
+    finally:
+        db.session.close()
     return redirect(url_for('index'))
 
 if __name__=='__main__':

@@ -3,22 +3,69 @@
 <head>
     <meta CHARSET="UTF-8">
     <title>Todo</title>
+
+    <style>
+
+        body{
+            background-color:#ffc10759
+        }
+
+        ul{
+            list-style-type: none;
+            padding:0;
+            margin:0;
+        }
+    </style>
 </head>
-<style>
-    body{
-        background-color:#ffc10759};
-</style>
 <body>
     <h1>Todo App</h1>
-    <ul>
-        {%for d in data%}
-        <li>{{d.description}}
-        </li>
-        {%endfor%}
-    </ul>
+    <div >
+       <ul>
+            {%for item in data%}
+            <li>
+                <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
+                <span>{{item.description}}</span>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+
     <form action="/todo/create" method="post">
         <input type="text" id="description" name="description">
         <button type="submit">Submit</button>
     </form>
+
 </body>
+<script>
+        function clicked_checkbox(el){
+            /**
+            @description:
+                list if a checkbox is clicked or not and send changes back to the controller (back-end)
+            @args:
+                this (HTML-element)
+            @return:
+                nothing
+            */
+
+            //1.Step: send description and checked status back to the controller (back-end)
+            let parent_li = el.closest("li");
+            let description = parent_li.querySelector("span").textContent;
+           fetch("/todo/change_complete",
+                 {
+                    method:'Post',
+                    body:JSON.stringify({
+                        description:description,
+                        done:el.checked
+                        }),
+                    headers:{
+                        'Content-Type':'Application/JSON'
+                    },
+
+                 }
+                )
+            console.log(el)
+
+        }
+
+    </script>
 </html>
