@@ -46,7 +46,7 @@ def index():
     '#1.Step:Get all object from the database'
     data={}
     response_data=[]
-    for el in Todo.query.all():
+    for el in Todo.query.order_by('id').all():
         data[el.id]={"description": el.name, "done": el.done}
         response_data.append(data[el.id])
     print(response_data)
