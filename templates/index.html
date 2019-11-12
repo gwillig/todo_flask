@@ -15,6 +15,24 @@
             padding:0;
             margin:0;
         }
+
+        .delete_button{
+            border: none;
+            outline:none;
+            color:red;
+            float:right;
+            background-color: transparent;
+            -webkit-appearance: button;
+        }
+
+        .delete_button:hover{
+            color:white;
+            background-color: red;
+        }
+
+        li{
+            width:150px;
+        }
     </style>
 </head>
 <body>
@@ -24,7 +42,8 @@
             {%for item in data%}
             <li>
                 <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
-                <span>{{item.description}}</span>
+                <span class="todo_description">{{item.description}}</span>
+                <button class="delete_button" >&cross;</button>
             </li>
             {%endfor%}
         </ul>
