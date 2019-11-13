@@ -10,6 +10,10 @@
             background-color:#ffc10759
         }
 
+        span{
+        display: inline-block;
+        }
+
         ul{
             list-style-type: none;
             padding:0;
@@ -21,8 +25,7 @@
             outline:none;
             color:red;
             float:right;
-            background-color: transparent;
-            -webkit-appearance: button;
+            background-color:transparent;
         }
 
         .delete_button:hover{
@@ -31,7 +34,9 @@
         }
 
         li{
-            width:150px;
+            width:400px;
+            background-color: hsla(45, 100%, 70%, 1);
+            margin: 4px;
         }
     </style>
 </head>
@@ -43,7 +48,7 @@
             <li>
                 <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
                 <span class="todo_description">{{item.description}}</span>
-                <button class="delete_button" >&cross;</button>
+                <button class="delete_button"  onclick="delete_item(this)">&cross;</button>
             </li>
             {%endfor%}
         </ul>
@@ -56,19 +61,50 @@
 
 </body>
 <script>
-        function clicked_checkbox(el){
-            /**
-            @description:
-                list if a checkbox is clicked or not and send changes back to the controller (back-end)
-            @args:
-                this (HTML-element)
-            @return:
-                nothing
-            */
 
-            //1.Step: send description and checked status back to the controller (back-end)
+    function delete_item(el){
+    /**
+    @description:
+        Delete item from front-end and back-end
+    @args:
+        el(HTML-element)
+    @return:
+        nothing
+    */
+    //1.Step: Get the description of the clicked item
+        let parent_li = el.closest("li");
+        let description = parent_li.querySelector("span").textContent;
+    //2.Step: Make a fetch to the back-end
+        fetch('/todo/delete_item',
+              {
+                method: 'delete',
+                body:JSON.stringify(
+                        {description:description}
+                    ),
+                 headers:{'Content-Type':'Application/JSON'},
+              }
+        ).then(function(){
+                //3.Step: On success remove the parent_li
+            parent_li.remove();
+            }
+        )
+    }
+
+
+    function clicked_checkbox(el){
+        /**
+        @description:
+            list if a checkbox is clicked or not and send changes back to the controller (back-end)
+        @args:
+            this (HTML-element)
+        @return:
+            nothing
+        */
+
+        //1.Step: send description and checked status back to the controller (back-end)
             let parent_li = el.closest("li");
             let description = parent_li.querySelector("span").textContent;
+        //2.Step: Make a fetch to the back-end
            fetch("/todo/change_complete",
                  {
                     method:'Post',
@@ -84,7 +120,7 @@
                 )
             console.log(el)
 
-        }
+    }
 
-    </script>
+</script>
 </html>

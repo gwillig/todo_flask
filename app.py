@@ -7,9 +7,10 @@ adds temporary git\bit to path      | "c:\Program Files\Git\bin\sh.exe" --login
 PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 """
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,jsonify
 from flask_sqlalchemy import SQLAlchemy
 import sys
+
 from flask_migrate import Migrate
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://myapp:dbpass@localhost:15432/myapp'
@@ -68,12 +69,12 @@ def create_item():
     print(description)
     return redirect(url_for('index'))
 
+
 @app.route('/todo/change_complete',methods=['Post'])
 def change_complete():
     data = request.get_json()
     print(f'''
-            Description:{data["description"]}\n done: {data['done']} 
-          '''
+            Description:{data["description"]}\n done: {data['done']}           '''
           )
     try:
         task = Todo.query.filter_by(name=data['description']).first()
@@ -86,6 +87,25 @@ def change_complete():
     finally:
         db.session.close()
     return redirect(url_for('index'))
+
+
+@app.route('/todo/delete_item',methods=['delete'])
+def delete_item():
+    data = request.get_json()
+    print(f'''
+            Description:{data["description"]} 
+          '''
+          )
+    try:
+        Todo.query.filter_by(name=data['description']).delete()
+        db.session.commit()
+    except:
+        db.session.rollback()
+        error=True
+        print(sys.exc_info())
+    finally:
+        db.session.close()
+    return jsonify({'success': True})
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port='3000',debug=True)
