@@ -38,26 +38,42 @@
             background-color: hsla(45, 100%, 70%, 1);
             margin: 4px;
         }
+        .list_wrapper, .todo_wrapper {
+            display: inline-block;
+            vertical-align: top;
+        }
     </style>
 </head>
 <body>
     <h1>Todo App</h1>
-    <div >
-       <ul>
-            {%for item in data%}
+    <div class="list_wrapper">
+         <ul>
+            {%for item in lists%}
             <li>
                 <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
-                <span class="todo_description">{{item.description}}</span>
+                <a href="/list/{{item.id}}" class="list_item">{{item.name}}</a>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+
+    <div class="todo_wrapper">
+        <form action="/todo/create" method="post">
+            <input type="text" id="description" name="description">
+            <button type="submit">Submit</button>
+        </form>
+       <ul>
+            {%for item in todos%}
+            <li>
+                <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
+                <span class="todo_description">{{item.name}}</span>
                 <button class="delete_button"  onclick="delete_item(this)">&cross;</button>
             </li>
             {%endfor%}
         </ul>
     </div>
 
-    <form action="/todo/create" method="post">
-        <input type="text" id="description" name="description">
-        <button type="submit">Submit</button>
-    </form>
+
 
 </body>
 <script>
