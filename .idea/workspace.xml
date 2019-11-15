@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c0803a4-9f2e-4698-b8af-a4cd40a7c517" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_provision" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_provision" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_set_name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/box_meta" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/box_meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/id" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/id" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/index_uuid" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/index_uuid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/vagrant_cwd" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/vagrant_cwd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/Vagrantfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
@@ -103,26 +96,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1161" height="180" key="GridCell.Tab.0.bottom" timestamp="1576767806054">
+    <state width="872" height="358" key="GridCell.Tab.0.bottom" timestamp="1576770231256">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1163" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576763935871" />
-    <state width="1161" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576767806054" />
-    <state width="1161" height="180" key="GridCell.Tab.0.center" timestamp="1576767806054">
+    <state width="872" height="358" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576770231256" />
+    <state width="872" height="358" key="GridCell.Tab.0.center" timestamp="1576770231256">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1163" height="180" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576763935870" />
-    <state width="1161" height="180" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576767806054" />
-    <state width="1161" height="180" key="GridCell.Tab.0.left" timestamp="1576767806053">
+    <state width="872" height="358" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576770231256" />
+    <state width="872" height="358" key="GridCell.Tab.0.left" timestamp="1576770231256">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1163" height="180" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576763935869" />
-    <state width="1161" height="180" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576767806053" />
-    <state width="1161" height="180" key="GridCell.Tab.0.right" timestamp="1576767806054">
+    <state width="872" height="358" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576770231256" />
+    <state width="872" height="358" key="GridCell.Tab.0.right" timestamp="1576770231256">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1163" height="180" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576763935870" />
-    <state width="1161" height="180" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576767806054" />
+    <state width="872" height="358" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576770231256" />
     <state x="1829" y="165" key="SettingsEditor" timestamp="1576749595654">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -133,10 +126,10 @@
     </state>
     <state x="475" y="243" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576697536826" />
     <state x="2034" y="347" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576764064233" />
-    <state x="2135" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576755661870">
+    <state x="2135" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576770592222">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2135" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576755661870" />
+    <state x="2135" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576770592222" />
     <state x="1491" y="118" width="710" height="804" key="find.popup" timestamp="1576673117092">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

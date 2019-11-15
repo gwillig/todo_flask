@@ -7,7 +7,7 @@
     <style>
 
         body{
-            background-color:#ffc10759
+            background-color:rgb(225, 235, 226)
         }
 
         span{
@@ -33,14 +33,35 @@
             background-color: red;
         }
 
+        .todo_title{
+            margin-left:2px;
+        }
+
         li{
             width:400px;
-            background-color: hsla(45, 100%, 70%, 1);
+            background-color: rgb(150, 189, 223)
             margin: 4px;
+            margin-left:5px;
         }
+
+        .list_wrapper{
+        background-color:rgb(253, 227, 230)
+        }
+
+        .todo_wrapper{
+            background-color:rgb(144, 167, 235);
+            margin-left:5px;
+        }
+
         .list_wrapper, .todo_wrapper {
             display: inline-block;
             vertical-align: top;
+            border-radius: 10px;
+            margin-bottom:5px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+
         }
     </style>
 </head>
@@ -50,7 +71,6 @@
          <ul>
             {%for item in lists%}
             <li>
-                <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
                 <a href="/list/{{item.id}}" class="list_item">{{item.name}}</a>
             </li>
             {%endfor%}
@@ -58,11 +78,8 @@
     </div>
 
     <div class="todo_wrapper">
-        <form action="/todo/create" method="post">
-            <input type="text" id="description" name="description">
-            <button type="submit">Submit</button>
-        </form>
        <ul>
+           <h4 class="todo_title">{{selected_list}}</h4>
             {%for item in todos%}
             <li>
                 <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
@@ -71,8 +88,12 @@
             </li>
             {%endfor%}
         </ul>
+        <form action="/todo/create" method="post">
+            <input type="text" id="selected_list" name="selected_list" value="{{selected_list}}">
+            <input type="text" id="description" name="description">
+            <button type="submit">Submit</button>
+        </form>
     </div>
-
 
 
 </body>

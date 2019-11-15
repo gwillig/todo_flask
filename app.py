@@ -58,6 +58,7 @@ if len(TodoList.query.all())==0:
 def get_list(list_id):
     print(list_id)
     return render_template('index.html',
+                           selected_list=TodoList.query.filter_by(id=list_id).first().name,
                            lists=TodoList.query.order_by('id').all(),
                            todos=Todo.query.filter_by(list_id=list_id).order_by('id')
                            )
@@ -74,8 +75,10 @@ def index():
 @app.route('/todo/create',methods=['Post'])
 def create_item():
     description = request.form.get("description", None)
+    selected_list = request.form.get("selected_list", None)
+    list_name_id = TodoList.query.filter_by(name=selected_list).first().id
     try:
-        new_task=Todo(name=description)
+        new_task=Todo(name=description,list_id=list_name_id)
         db.session.add(new_task)
         db.session.commit()
     except:
@@ -85,7 +88,7 @@ def create_item():
     finally:
         db.session.close()
     print(description)
-    return redirect(url_for('index'))
+    return redirect(url_for(f'get_list',list_id=list_name_id))
 
 
 @app.route('/todo/change_complete',methods=['Post'])
