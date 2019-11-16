@@ -5,7 +5,6 @@
     <title>Todo</title>
 
     <style>
-
         body{
             background-color:rgb(225, 235, 226)
         }
@@ -35,6 +34,8 @@
 
         .todo_title{
             margin-left:2px;
+            color:white;
+            text-align:center;
         }
 
         li{
@@ -42,14 +43,22 @@
             background-color: rgb(150, 189, 223)
             margin: 4px;
             margin-left:5px;
+            margin-top:10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+
+            padding-bottom: 15px;
         }
 
-        .list_wrapper{
-        background-color:rgb(253, 227, 230)
+        input, button{
+          margin-top:15px;
+          margin-left:5px;
+          border-radius:10px;
         }
+
 
         .todo_wrapper{
-            background-color:rgb(144, 167, 235);
+            background-color:#3CAEA3;
             margin-left:5px;
         }
 
@@ -66,8 +75,10 @@
     </style>
 </head>
 <body>
-    <h1>Todo App</h1>
+<div class="app">
+
     <div class="list_wrapper">
+         <h3>List</h3>
          <ul>
             {%for item in lists%}
             <li>
@@ -79,7 +90,7 @@
 
     <div class="todo_wrapper">
        <ul>
-           <h4 class="todo_title">{{selected_list}}</h4>
+           <h3 class="todo_title">{{selected_list}}</h3>
             {%for item in todos%}
             <li>
                 <input  onclick="clicked_checkbox(this)"type="checkbox" {%if item.done%}checked {%endif%}>
@@ -95,7 +106,7 @@
         </form>
     </div>
 
-
+</div>
 </body>
 <script>
 

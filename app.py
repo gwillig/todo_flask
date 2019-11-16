@@ -47,11 +47,13 @@ db.create_all() #If a table with the name Person already exist, not a new table 
 ##Check if initial
 if len(TodoList.query.all())==0:
     list1=TodoList(name='unassigned')
-    db.session.add(list1)
+    list2 = TodoList(name='urgent')
+    db.session.add_all([list2,])
 
     task1=Todo(name='Clean my desk',list_id=1)
     task2=Todo(name='Buy Xmas presents',list_id=1)
-    db.session.add_all([task1,task2])
+    task3=Todo(name='Buy Xmas presents',list_id=2)
+    db.session.add_all([task1,task2,task3])
     db.session.commit()
 
 @app.route('/list/<list_id>')
