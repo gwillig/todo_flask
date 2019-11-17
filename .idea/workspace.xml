@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c0803a4-9f2e-4698-b8af-a4cd40a7c517" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,14 +129,14 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2135" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576771775136" />
-    <state x="1494" y="118" width="737" height="804" key="find.popup" timestamp="1576771105322">
+    <state x="1494" y="118" width="737" height="804" key="find.popup" timestamp="1576772582035">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1494" y="118" width="737" height="804" key="find.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576771105322" />
-    <state x="443" y="158" width="672" height="678" key="search.everywhere.popup" timestamp="1576760311895">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1494" y="118" width="737" height="804" key="find.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576772582035" />
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1576772228557">
+      <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="443" y="158" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1576760311895" />
-    <state x="1989" y="225" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576697929426" />
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1576772228557" />
   </component>
 </project>
