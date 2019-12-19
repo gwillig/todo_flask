@@ -2,6 +2,7 @@
 Description                         | Cmd
 to login as the right user for psql | PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 Give all right to role              | grant all privilages on database todoapp to test
+adds temporary git\bit to path      | set path "%path%";C:\Program Files\Git\bin
 
 PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 """
