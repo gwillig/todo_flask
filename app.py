@@ -1,6 +1,7 @@
 """ Useful cmd
 Description                         | Cmd
 to login as the right user for psql | PGUSER=test PGPASSWORD=test psql -h localhost todoapp
+Give all right to role              | grant all privilages on database todoapp to test
 
 PGUSER=test PGPASSWORD=test psql -h localhost todoapp
 """
@@ -26,7 +27,7 @@ migrate=Migrate(app,db)
 # Create a model
 class Todo(db.Model):
     id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String(80))
+    name = db.Column(db.String(80),)
     done = db.Column(db.Boolean,default=False)
     def __repre__(self):
         return f'<Todo {self.id} {self.name}>'
